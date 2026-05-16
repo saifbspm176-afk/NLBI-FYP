@@ -1,0 +1,68 @@
+
+════════════════════════════════════════════════════════════
+  ADMISSION POLICY
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────
+  full_text
+────────────────────────────────────────
+  Students must have at least 60% marks in intermediate.
+CNIC, Matric certificate, Intermediate certificate.
+
+
+────────────────────────────────────────
+  sections
+────────────────────────────────────────
+
+  [1. Eligibility]
+  Students must have at least 60% marks in intermediate.
+
+
+  [2. Documents Required]
+  CNIC, Matric certificate, Intermediate certificate.
+
+
+════════════════════════════════════════════════════════════
+  FEE POLICY
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────
+  full_text
+────────────────────────────────────────
+  Fee is to be paid before the start of every semester.
+Late fee of Rs. 500 per day after the due date.
+
+
+────────────────────────────────────────
+  sections
+────────────────────────────────────────
+
+  [1. General]
+  Fee is to be paid before the start of every semester.
+
+
+  [2. Late Fee]
+  Late fee of Rs. 500 per day after the due date.
+
+
+════════════════════════════════════════════════════════════
+  EXAMINATION POLICY
+════════════════════════════════════════════════════════════
+
+────────────────────────────────────────
+  full_text
+────────────────────────────────────────
+  Minimum 75% attendance is required to appear in exams.
+Grades are awarded on relative grading system.
+
+
+────────────────────────────────────────
+  sections
+────────────────────────────────────────
+
+  [1. Attendance]
+  Minimum 75% attendance is required to appear in exams.
+
+
+  [2. Grading]
+  Grades are awarded on relative grading system.

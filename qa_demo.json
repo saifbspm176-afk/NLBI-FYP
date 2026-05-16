@@ -1,0 +1,67 @@
+[
+  {
+    "question": "What does full_text say under ADMISSION POLICY?",
+    "answer": "Students must have at least 60% marks in intermediate.\nCNIC, Matric certificate, Intermediate certificate.",
+    "source": "POLICY_COMPENDIUM > ADMISSION POLICY > full_text"
+  },
+  {
+    "question": "What does sections say under ADMISSION POLICY?",
+    "answer": "{'1. Eligibility': 'Students must have at least 60% marks in intermediate.', '2. Documents Required': 'CNIC, Matric certificate, Intermediate certificate.'}",
+    "source": "POLICY_COMPENDIUM > ADMISSION POLICY > sections"
+  },
+  {
+    "question": "What does full_text say under FEE POLICY?",
+    "answer": "Fee is to be paid before the start of every semester.\nLate fee of Rs. 500 per day after the due date.",
+    "source": "POLICY_COMPENDIUM > FEE POLICY > full_text"
+  },
+  {
+    "question": "What does sections say under FEE POLICY?",
+    "answer": "{'1. General': 'Fee is to be paid before the start of every semester.', '2. Late Fee': 'Late fee of Rs. 500 per day after the due date.'}",
+    "source": "POLICY_COMPENDIUM > FEE POLICY > sections"
+  },
+  {
+    "question": "What does full_text say under EXAMINATION POLICY?",
+    "answer": "Minimum 75% attendance is required to appear in exams.\nGrades are awarded on relative grading system.",
+    "source": "POLICY_COMPENDIUM > EXAMINATION POLICY > full_text"
+  },
+  {
+    "question": "What does sections say under EXAMINATION POLICY?",
+    "answer": "{'1. Attendance': 'Minimum 75% attendance is required to appear in exams.', '2. Grading': 'Grades are awarded on relative grading system.'}",
+    "source": "POLICY_COMPENDIUM > EXAMINATION POLICY > sections"
+  },
+  {
+    "question": "What does Overview say under IIU STATUTES 2006?",
+    "answer": "FACULTIES:- 1.1 The University shall have the following Faculties: i) The Faculty of Islamic Studies (Usuluddin); ii) The Faculty of Shariah and Law; iii) The Faculty of Management Sciences; iv) The Faculty of Education; v) The Faculty of Social Sciences; 1.2 Each Faculty shall have a Board of Faculty. DEAN: 2.1 There shall be a Dean of each Faculty. 2.2 The Dean shall be appointed by the Rector for three years.",
+    "source": "IIU_STATUTES > IIU STATUTES 2006 > Overview"
+  },
+  {
+    "question": "What does TEACHING DEPARTMENTS say under IIU STATUTES 2006?",
+    "answer": "3.1 There shall be a Teaching Department for each subject.",
+    "source": "IIU_STATUTES > IIU STATUTES 2006 > TEACHING DEPARTMENTS"
+  },
+  {
+    "question": "What does STUDENTS DISCIPLINE COMMITTEE say under IIU STATUTES 2006?",
+    "answer": "12.1 There shall be a Student Discipline Committee. 12.5 The functions shall be to deal with all cases of student discipline.",
+    "source": "IIU_STATUTES > IIU STATUTES 2006 > STUDENTS DISCIPLINE COMMITTEE"
+  },
+  {
+    "question": "What does BUDGET AND ACCOUNTS say under IIU STATUTES 2006?",
+    "answer": "14.1 There shall be a common Fund of the University. AUDIT: 15.1 There shall be an Internal Audit of the University.",
+    "source": "IIU_STATUTES > IIU STATUTES 2006 > BUDGET AND ACCOUNTS"
+  },
+  {
+    "question": "What does DEFINITIONS say under IIU PENSION STATUTES 2004?",
+    "answer": "1. In these Statutes the following expressions apply: i) Ad-hoc Appointment means temporary appointment.",
+    "source": "IIU_STATUTES > IIU PENSION STATUTES 2004 > DEFINITIONS"
+  },
+  {
+    "question": "What does GROUNDS FOR PENALTY say under IIU STATUTES 1987 - EFFICIENCY & DISCIPLINE?",
+    "answer": "Where an employee is inefficient or guilty of misconduct.",
+    "source": "IIU_STATUTES > IIU STATUTES 1987 - EFFICIENCY & DISCIPLINE > GROUNDS FOR PENALTY"
+  },
+  {
+    "question": "What does PENALTIES say under IIU STATUTES 1987 - EFFICIENCY & DISCIPLINE?",
+    "answer": "Minor: Censure, withholding increment. Major: Dismissal, removal, compulsory retirement.",
+    "source": "IIU_STATUTES > IIU STATUTES 1987 - EFFICIENCY & DISCIPLINE > PENALTIES"
+  }
+]

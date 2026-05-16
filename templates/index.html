@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title >NLBI Data Engine — IIU Islamabad</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="templates\app.css">
+  <style>
+    * { -webkit-font-smoothing: antialiased; }
+    
+   body { font-family: 'Poppins', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .animate-fade { animation: fadeIn 0.4s ease; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #f5f5f5; }
+    ::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 3px; }
+
+    .page { display: none; }
+    .page.active { display: block; animation: fadeIn 0.3s ease; }
+
+    /* IIU Logo Fallback */
+    .logo-placeholder {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+     
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .logo-placeholder .logo-text {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .logo-placeholder .logo-sub {
+      font-size: 9px;
+      margin-top: 4px;
+      opacity: 0.8;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+
+  <!-- TOP BAR (IIUI Format) -->
+  <div class="bg-green-800 text-white text-xs border-b border-green-900">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between">
+      <div class="flex gap-8">
+        <a href="https://www.iiu.edu.pk/admission" target="_blank" class="hover:text-yellow-400">Admission</a>
+        <a href="https://mail.iiu.edu.pk" target="_blank" class="hover:text-yellow-400">Email Sign in</a>
+        <a href="https://www.iiu.edu.pk/hostels" target="_blank" class="hover:text-yellow-400">Hostels</a>
+        <a href="https://www.iiu.edu.pk/jobs" target="_blank" class="hover:text-yellow-400">Jobs</a>
+        <a href="https://www.iiu.edu.pk/news" target="_blank" class="hover:text-yellow-400">News</a>
+        <a href="https://cms.iiu.edu.pk" target="_blank" class="hover:text-yellow-400">CMS</a>
+        <a href="https://lms.iiu.edu.pk" target="_blank" class="hover:text-yellow-400">LMS</a>
+        <a href="https://sis.iiu.edu.pk" target="_blank" class="hover:text-yellow-400">SIS</a>
+        <a href="https://www.iiu.edu.pk/contacts" target="_blank" class="hover:text-yellow-400">Contacts</a>
+      </div>
+      <span class="text-gray-300" '>NLBI Data Engine — FYP 2026 | IIU Islamabad</span>
+    </div>
+  </div>
+
+  <!-- HEADER (IIUI Format - Logo on Left, Text on Right) -->
+  <header class="bg-white border-b-4 border-green-800 px-6 py-8">
+    <div class="max-w-7xl mx-auto flex items-center gap-12">
+      
+      <!-- LEFT: LOGO -->
+      <div class="flex-shrink-0">
+        <!-- Try to load image, fallback to styled div -->
+        <div id="logoContainer">
+          <div class="logo-wrap">
+  
+  <div class="logo-name">
+    <!-- <span class="arabic">الجامعة الاسلامية العالمية</span> -->
+    <span class="english">International Islamic University, Islamabad</span>
+  </div>
+
+
+  
+
+</div>
+          <!-- FALLBACK LOGO -->
+          <div id="logoFallback" class="logo-placeholder">
+         
+             <div style="display:flex; align-items:center; gap:25px; padding:20px 40px;">
+
+    <!-- LOGO -->
+    <img src="{{ url_for('static', filename='logo.png') }}">
+<h1>NLBI Data Engine</h1>
+
+    <!-- TEXT -->
+    <div>
+        
+       
+        </p>
+    </div>
+
+</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: TEXT CONTENT -->
+      <div class="flex-1">
+        <!-- Org name in Urdu/Arabic -->
+        <p class="text-sm text-gray-600 mb-2" dir="rtl">الجامعة الاسلامية العالمية اسلام آباد</p>
+        
+        <!-- Main Heading -->
+        <h1 class="text-5xl font-bold text-green-800 mb-1">NLBI Data Engine</h1>
+        
+        <!-- Subtitle -->
+        <p class="text-lg text-gray-700 mb-3">International Islamic University, Islamabad</p>
+        
+        <!-- Description -->
+        <p class="text-base text-gray-600">Natural Language for Business Intelligence</p>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- STATS BAR -->
+  <div class="bg-gray-50 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-6 grid grid-cols-4 gap-8">
+      <div>
+        <div class="text-3xl font-bold text-green-800" id="statDocs">2</div>
+        <div class="text-xs text-gray-600 uppercase tracking-wider mt-1">Documents</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-green-700" id="statSecs">69</div>
+        <div class="text-xs text-gray-600 uppercase tracking-wider mt-1">Sections</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-green-700" id="statWords">114k</div>
+        <div class="text-xs text-gray-600 uppercase tracking-wider mt-1">Words</div>
+      </div>
+      <div>
+        <div class="text-3xl font-bold text-green-700" id="statQA">64</div>
+        <div class="text-xs text-gray-600 uppercase tracking-wider mt-1">Q&A Pairs</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  
+    <div class="max-w-7xl mx-auto px-6 flex gap-6">
+      <button class="nav-tab active" data-page="search" onclick="showPage('search', this)">
+
+
+       <button class="nav-tab active text-white" ...>Search</button>
+<button class="nav-tab text-white" ...>Browse</button>
+<button class="nav-tab text-white" ...>Q&A</button>
+<button class="nav-tab text-white" ...>About</button>
+      </button>
+    </div>
+  </nav><nav class="bg-green-800 border-b-2 border-green-700 sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 flex gap-8">
+
+        <button class="nav-tab active text-white"
+            onclick="showPage('search', this)">
+            Search
+        </button>
+
+        <button class="nav-tab text-white"
+            onclick="showPage('browser', this)">
+            Browse
+        </button>
+
+        <button class="nav-tab text-white"
+            onclick="showPage('qa', this)">
+            Q&A
+        </button>
+
+        <button class="nav-tab text-white"
+            onclick="showPage('about', this)">
+            About
+        </button>
+
+    </div>
+</nav>
+
+  <style>
+    .nav-tab {
+      @apply py-4 px-6 text-white font-semibold border-b-4 border-transparent hover:border-yellow-400 transition duration-200;
+    }
+    .nav-tab.active {
+      @apply border-yellow-400 bg-green-700;
+    }
+  </style>
+
+  <!-- MAIN LAYOUT -->
+  <div class="max-w-7xl mx-auto px-6 py-8">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+      <!-- SIDEBAR -->
+      <aside class="lg:col-span-1">
+        
+        <!-- Documents Card -->
+        <div class="bg-white border-l-4 border-green-800 rounded-lg shadow-sm overflow-hidden mb-6">
+          <div class="bg-green-800 text-white px-6 py-4 font-bold text-sm"> Documents</div>
+          <div class="divide-y" id="docList"></div>
+        </div>
+
+        <!-- Downloads Card -->
+        <div class="bg-white border-l-4 border-green-800 rounded-lg shadow-sm overflow-hidden">
+          <div class="bg-green-800 text-white px-6 py-4 font-bold text-sm"> Downloads</div>
+          <div class="p-4 space-y-3">
+            <a href="/api/download/json" class="block w-full bg-green-800 hover:bg-green-900 text-white px-4 py-2 rounded font-semibold text-sm text-center transition">
+               Full Data (JSON)
+            </a>
+            <a href="/api/download/qa" class="block w-full bg-yellow-600 hover:bg-yellow-700 text-white px-4 py-2 rounded font-semibold text-sm text-center transition">
+               Q&A Dataset (JSON)
+            </a>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="lg:col-span-3 space-y-8">
+
+        <!-- SEARCH PAGE -->
+        <div class="page active" id="page-search">
+          
+          <!-- Search Hero -->
+          <div class="bg-gradient-to-r from-green-800 to-green-900 text-white rounded-xl p-12 shadow-lg">
+            <h2 class="text-4xl font-bold mb-2">Search Policies and Statutes</h2>
+            <p class="text-green-100 mb-8 text-lg">Find IIU policies, regulations, and statutory information instantly</p>
+            
+            <div class="flex gap-3 mb-6">
+              <input 
+                type="text"
+                id="searchInput"
+                placeholder="Search: admission, fee policy, pension, leave, scholarship..."
+                class="flex-1 px-6 py-3 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                onkeydown="if(event.key==='Enter') runSearch()"
+              />
+              <button 
+                onclick="runSearch()" 
+                class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold px-8 py-3 rounded-lg transition"
+              >
+                Search
+              </button>
+            </div>
+
+            <!-- Quick Keywords -->
+            <div class="flex flex-wrap gap-2">
+              <button class="px-3 py-1 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm transition" onclick="quickSearch('admission')">Admission</button>
+              <button class="px-3 py-1 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm transition" onclick="quickSearch('fee')">Fee Policy</button>
+              <button class="px-3 py-1 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm transition" onclick="quickSearch('examination')">Examination</button>
+              <button class="px-3 py-1 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm transition" onclick="quickSearch('scholarship')">Scholarship</button>
+              <button class="px-3 py-1 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm transition" onclick="quickSearch('pension')">Pension</button>
+              <button class="px-3 py-1 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm transition" onclick="quickSearch('leave')">Leave</button>
+              <button class="px-3 py-1 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm transition" onclick="quickSearch('faculty')">Faculty</button>
+              <button class="px-3 py-1 bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full text-sm transition" onclick="quickSearch('discipline')">Discipline</button>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div id="searchResults"></div>
+        </div>
+
+        <!-- BROWSE PAGE -->
+        <div class="page" id="page-browser">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Browse Documents</h2>
+          <p class="text-gray-600 mb-6">Select a section from the left panel to view its full content</p>
+
+          <div class="bg-white rounded-lg border border-gray-200 shadow-sm" style="display: grid; grid-template-columns: 220px 1fr; min-height: 500px;">
+            <div id="browserNav" class="border-r border-gray-200 overflow-y-auto bg-gray-50"></div>
+            <div id="browserContent" class="p-8 overflow-y-auto flex items-center justify-center">
+              <div class="text-center text-gray-400">
+                <div class="text-5xl mb-4"></div>
+                <p class="font-medium">Select a section to begin</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q&A PAGE -->
+        <div class="page" id="page-qa">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">Q&A Training Dataset</h2>
+          <p class="text-gray-600 mb-8">Auto-generated question-answer pairs for NLP model training</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="qaGrid"></div>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div class="page" id="page-about">
+          <h2 class="text-3xl font-bold text-gray-900 mb-2">About This Project</h2>
+          <p class="text-gray-600 mb-8">Final Year Project: Natural Language for Business Intelligence</p>
+
+          <div class="bg-white border border-gray-200 rounded-lg shadow-sm p-8 mb-8">
+            <p class="text-gray-700 leading-relaxed mb-8">
+              This application provides comprehensive access to IIU's institutional documents including the complete Policy Compendium (2020-2023) and all IIU Statutes (2006, 2005, 2004, 2000, 1992, 1987). Built with modern web technologies for fast, intuitive exploration of university policies and regulations.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-12">
+              <div>
+                <h4 class="font-bold text-green-800 mb-6 text-lg">Core Features</h4>
+                <ul class="space-y-3 text-gray-700">
+                  <li>✓ Real-time full-text search</li>
+                  <li>✓ Hierarchical document browsing</li>
+                  <li>✓ Auto-generated Q&A pairs</li>
+                  <li>✓ Complete IIU Statutes (all versions)</li>
+                  <li>✓ Detailed policy compendium</li>
+                  <li>✓ JSON data export</li>
+                  <li>✓ Mobile responsive design</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 class="font-bold text-green-800 mb-6 text-lg">API Endpoints</h4>
+                <div class="space-y-2 text-sm bg-gray-100 p-6 rounded-lg font-mono">
+                  <div><span class="text-green-800 font-bold">GET</span> /api/stats</div>
+                  <div><span class="text-green-800 font-bold">POST</span> /api/search</div>
+                  <div><span class="text-green-800 font-bold">GET</span> /api/documents</div>
+                  <div><span class="text-green-800 font-bold">GET</span> /api/section</div>
+                  <div><span class="text-green-800 font-bold">GET</span> /api/qa</div>
+                  <div><span class="text-green-800 font-bold">GET</span> /api/download/json</div>
+                  <div><span class="text-green-800 font-bold">GET</span> /api/download/qa</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-green-50 border border-green-200 rounded-lg p-6">
+            <h4 class="font-bold text-green-800 mb-4">Quick Links</h4>
+            <div class="flex gap-6 items-center flex-wrap mt-3">
+    <a href="#" class="text-green-800 font-medium">IIU Official Website</a>
+    <a href="#" class="text-green-800 font-medium">Contact IIU</a>
+
+    <span class="text-green-800 font-medium">
+        Designed by Saif Ur Rehman | Reg No: 176/FMS/BSPM/F22
+    </span>
+</div>
+            </div>
+          </div>
+        </div>
+
+      </main>
+
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4" id="modal">
+    <div class="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] flex flex-col shadow-2xl">
+      <div class="bg-green-800 text-white p-6 flex items-start justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold" id="modalTitle"></h2>
+          <p class="text-sm opacity-75 mt-2 font-mono" id="modalPath"></p>
+        </div>
+        <button onclick="closeModal()" class="text-white hover:bg-white hover:bg-opacity-20 rounded p-2 transition">✕</button>
+      </div>
+      <div class="p-6 overflow-y-auto flex-1 text-sm text-gray-700 whitespace-pre-wrap" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <<footer class="bg-green-900 text-gray-300 py-8 border-t-4 border-green-800 mt-16">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm">
+
+        <p>
+            <span class="text-white font-semibold">
+                International Islamic University
+            </span>, Islamabad
+        </p>
+
+        <p class="mt-2">
+            Sector H-10, Islamabad | Phone: +92-51-9019000
+        </p>
+
+        <p class="mt-4 text-green-300">
+            NLBI Data Engine © 2026 |
+            <a href="https://www.iiu.edu.pk"
+               class="text-yellow-400 hover:text-yellow-300 transition">
+               www.iiu.edu.pk
+            </a>
+        </p>
+
+    </div>
+</footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const DOC_META = {
+      "POLICY_COMPENDIUM": { label: "Policy Compendium 2020–23", icon: "" },
+      "IIU_STATUTES": { label: "IIU Statutes (All Versions)", icon: "" },
+    };
+
+    let DOCS = {};
+
+    async function init() {
+      await loadStats();
+      await loadDocuments();
+      await loadQA();
+    }
+
+    async function loadStats() {
+      try {
+        const d = await fetch("/api/stats").then(r => r.json());
+        const w = d.words || 0;
+        document.getElementById("statDocs").textContent = d.documents || "—";
+        document.getElementById("statSecs").textContent = d.sections || "—";
+        document.getElementById("statWords").textContent = w > 999 ? (w / 1000).toFixed(1) + "k" : w;
+        document.getElementById("statQA").textContent = d.qa_pairs || "—";
+      } catch (e) { console.error(e); }
+    }
+
+    async function loadDocuments() {
+      try {
+        DOCS = await fetch("/api/documents").then(r => r.json());
+        buildDocList();
+        const first = Object.keys(DOCS)[0];
+        if (first) buildBrowserNav(first);
+      } catch (e) { console.error(e); }
+    }
+
+    function buildDocList() {
+      const list = document.getElementById("docList");
+      list.innerHTML = "";
+      for (const [key, headings] of Object.entries(DOCS)) {
+        const meta = DOC_META[key] || { label: key, icon: "📄" };
+        const count = Object.keys(headings).length;
+        const el = document.createElement("button");
+        el.className = "w-full text-left px-6 py-4 hover:bg-gray-100 border-b border-gray-200 transition font-medium text-gray-700";
+        el.innerHTML = `
+          <div class="text-green-800 font-bold">${meta.icon} ${meta.label}</div>
+          <div class="text-xs text-gray-500 mt-1">${count} sections</div>
+        `;
+        el.onclick = () => {
+          buildBrowserNav(key);
+          showPage("browser", document.querySelector('[data-page="browser"]'));
+        };
+        list.appendChild(el);
+      }
+    }
+
+    function buildBrowserNav(docKey) {
+      const nav = document.getElementById("browserNav");
+      nav.innerHTML = "";
+      for (const [heading, sections] of Object.entries(DOCS[docKey] || {})) {
+        const grp = document.createElement("div");
+        grp.className = "bg-green-800 text-white px-4 py-3 text-xs font-bold uppercase tracking-wider";
+        grp.textContent = heading;
+        nav.appendChild(grp);
+        for (const sec of sections) {
+          const btn = document.createElement("button");
+          btn.className = "w-full text-left px-4 py-3 text-sm hover:bg-green-100 text-gray-700 border-b border-gray-200 transition";
+          btn.textContent = sec;
+          btn.onclick = () => fetchSection(docKey, heading, sec);
+          nav.appendChild(btn);
+        }
+      }
+    }
+
+    async function fetchSection(docKey, heading, section) {
+      const body = document.getElementById("browserContent");
+      body.innerHTML = `<div class="flex items-center justify-center"><div class="w-8 h-8 border-4 border-green-200 border-t-green-800 rounded-full animate-spin"></div></div>`;
+      try {
+        const params = new URLSearchParams({ doc: docKey, heading, section });
+        const data = await fetch(`/api/section?${params}`).then(r => r.json());
+        const content = typeof data.data === 'string' ? data.data : JSON.stringify(data.data, null, 2);
+        body.innerHTML = `
+          <div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">${escapeHtml(section)}</h3>
+            <p class="text-xs text-gray-500 mb-6 font-mono">${escapeHtml(heading)}</p>
+            <div class="text-sm text-gray-700 leading-relaxed whitespace-pre-wrap">${escapeHtml(content.substring(0, 3000))}</div>
+          </div>
+        `;
+      } catch (e) {
+        body.innerHTML = `<div class="text-red-600 p-6">Error loading section</div>`;
+      }
+    }
+
+    async function runSearch() {
+      const q = document.getElementById("searchInput").value.trim();
+      if (!q) return;
+      const box = document.getElementById("searchResults");
+      box.innerHTML = `<div class="text-center py-12"><div class="w-8 h-8 border-4 border-green-200 border-t-green-800 rounded-full animate-spin mx-auto"></div></div>`;
+      try {
+        const data = await fetch("/api/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: q })
+        }).then(r => r.json());
+        renderResults(data.results || [], q);
+      } catch (e) {
+        box.innerHTML = `<div class="bg-red-50 border border-red-300 text-red-800 p-4 rounded-lg">Search failed</div>`;
+      }
+    }
+
+    function renderResults(results, q) {
+      const box = document.getElementById("searchResults");
+      if (!results.length) {
+        box.innerHTML = `
+          <div class="text-center py-16 text-gray-400">
+            <div class="text-6xl mb-4">🔎</div>
+            <p class="font-medium">No results found</p>
+          </div>
+        `;
+        return;
+      }
+      let html = `<p class="text-sm text-gray-700 mb-6 font-medium">Found <strong class="text-green-800">${results.length}</strong> result${results.length !== 1 ? 's' : ''}</p><div class="space-y-4">`;
+      results.forEach(r => {
+        const meta = DOC_META[r.document] || { label: r.document, icon: "📄" };
+        html += `
+          <div class="bg-white border-l-4 border-green-800 p-6 rounded-lg shadow-sm hover:shadow-md cursor-pointer transition" onclick="openModal('${escapeJs(r.heading)}','${escapeJs(r.section)}','${escapeJs(r.document)}','${escapeJs(r.text)}')">
+            <p class="text-xs text-gray-500 mb-2 font-mono">${meta.icon} ${meta.label}</p>
+            <h3 class="text-lg font-bold text-green-800 mb-2">${escapeHtml(r.section)}</h3>
+            <p class="text-sm text-gray-700">${highlightKeyword(escapeHtml(r.snippet), q)}</p>
+          </div>
+        `;
+      });
+      html += '</div>';
+      box.innerHTML = html;
+    }
+
+    function highlightKeyword(text, kw) {
+      return text.replace(new RegExp(`(${kw.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi"), "<mark class=\"bg-yellow-200 font-bold px-1\">$1</mark>");
+    }
+
+    function quickSearch(kw) {
+      document.getElementById("searchInput").value = kw;
+      runSearch();
+    }
+
+    async function loadQA() {
+      try {
+        const data = await fetch("/api/qa").then(r => r.json());
+        const grid = document.getElementById("qaGrid");
+        grid.innerHTML = "";
+        (data.qa || []).slice(0, 24).forEach((qa, i) => {
+          const el = document.createElement("div");
+          el.className = "bg-white border-l-4 border-green-800 p-6 rounded-lg shadow-sm hover:shadow-md transition";
+          el.innerHTML = `
+            <p class="text-sm font-bold text-green-800 mb-3">${escapeHtml(qa.question)}</p>
+            <p class="text-sm text-gray-700 leading-relaxed line-clamp-4">${escapeHtml(qa.answer)}</p>
+            <p class="text-xs text-gray-500 mt-4 pt-4 border-t font-mono">${escapeHtml(qa.source)}</p>
+          `;
+          grid.appendChild(el);
+        });
+      } catch (e) { console.error(e); }
+    }
+
+    function openModal(heading, section, docKey, text) {
+      const meta = DOC_META[docKey] || { label: docKey };
+      document.getElementById("modalTitle").textContent = section;
+      document.getElementById("modalPath").textContent = `${meta.label} › ${heading}`;
+      document.getElementById("modalBody").textContent = text;
+      document.getElementById("modal").classList.remove("hidden");
+      document.getElementById("modal").classList.add("flex");
+    }
+
+    function closeModal() {
+      document.getElementById("modal").classList.add("hidden");
+      document.getElementById("modal").classList.remove("flex");
+    }
+
+    document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+    document.querySelectorAll(".nav-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".nav-tab").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      });
+    });
+
+    function showPage(name, btn) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById("page-" + name).classList.add("active");
+      if (btn) {
+        document.querySelectorAll(".nav-tab").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+      }
+    }
+
+    function escapeHtml(s) {
+      const div = document.createElement("div");
+      div.textContent = s;
+      return div.innerHTML;
+    }
+
+    function escapeJs(s) {
+      return String(s).replace(/'/g, "\\'").replace(/"/g, '\\"');
+    }
+
+    init();
+  </script>
+
+</body>
+</html>
